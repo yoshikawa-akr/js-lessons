@@ -8,3 +8,4 @@ img.alt = 'ブックマーク';
 a.appendChild(img);
 const li = document.createElement('li');
 li.appendChild(a);
+ul.appendChild(li);
