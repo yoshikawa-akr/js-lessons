@@ -5,7 +5,7 @@ a.textContent = 'これです';
 const img = document.createElement('img');
 img.src = 'bookmark.png';
 img.alt = 'ブックマーク';
-a.appendChild(img);
+a.insertAdjacentElement('afterbegin', img);
 const li = document.createElement('li');
 li.appendChild(a);
 ul.appendChild(li);
