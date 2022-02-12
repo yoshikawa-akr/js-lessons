@@ -5,3 +5,4 @@ a.textContent = 'これです';
 const img = document.createElement('img');
 img.src = 'bookmark.png';
 img.alt = 'ブックマーク';
+a.appendChild(img);
