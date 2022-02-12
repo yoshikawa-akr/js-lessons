@@ -1,4 +1,4 @@
-const target = document.getElementById('target');
+const ul = document.getElementById('js-ul');
 const li = document.createElement("li");
 li.textContent = "これです"
-target.appendChild(li);
+ul.appendChild(li);
