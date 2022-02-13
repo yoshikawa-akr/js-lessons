@@ -7,5 +7,4 @@ img.src = 'bookmark.png';
 img.alt = 'ブックマーク';
 a.insertAdjacentElement('afterbegin', img);
 const li = document.createElement('li');
-li.appendChild(a);
-ul.appendChild(li);
+ul.appendChild(li).appendChild(a);
