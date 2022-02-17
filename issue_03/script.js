@@ -10,3 +10,11 @@ img.setAttribute('src', '/img/bookmark.png');
 
 a.insertAdjacentElement('afterbegin', img);
 ul.appendChild(li).appendChild(a);
+
+const cloneLi = li.cloneNode(true);
+const cloneA = cloneLi.firstElementChild;
+const nodeListOfCloneA = cloneA.childNodes;
+
+nodeListOfCloneA[0].src = '/img/message.png';
+nodeListOfCloneA[1].textContent = 'a2';
+li.after(cloneLi);
