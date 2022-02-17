@@ -7,3 +7,6 @@ const img = document.createElement('img');
 a.setAttribute('href', 'a1.html');
 a.textContent = 'a1';
 img.setAttribute('src', '/img/bookmark.png');
+
+a.insertAdjacentElement('afterbegin', img);
+ul.appendChild(li).appendChild(a);
