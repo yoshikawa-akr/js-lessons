@@ -1,18 +1,16 @@
 const ul = document.getElementById('js-ul');
-const li = document.createElement('li');
-const a = document.createElement('a');
-const img = document.createElement('img');
+const hrefArray = ['a1.html', 'a2.html'];
+const textArray = ['a1', 'a2'];
+const srcArray = ['/img/bookmark.png', '/img/message.png'];
 
-a.setAttribute('href', 'a1.html');
-a.textContent = 'a1';
-img.setAttribute('src', '/img/bookmark.png');
-a.insertAdjacentElement('afterbegin', img);
-ul.appendChild(li).appendChild(a);
+for (let i = 0; i < 2; i++) {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    const img = document.createElement('img');
 
-const cloneLi = li.cloneNode(true);
-const cloneA = cloneLi.firstElementChild;
-const nodeListOfCloneA = cloneA.childNodes;
-
-nodeListOfCloneA[0].src = '/img/message.png';
-nodeListOfCloneA[1].textContent = 'a2';
-li.after(cloneLi);
+    a.setAttribute('href', hrefArray[i]);
+    a.textContent = textArray[i];
+    img.setAttribute('src', srcArray[i]);
+    a.insertAdjacentElement('afterbegin', img);
+    ul.appendChild(li).appendChild(a);
+}
