@@ -1,7 +1,15 @@
 const ul = document.getElementById('js-ul');
-const hrefArray = ['a1.html', 'a2.html'];
-const textArray = ['a1', 'a2'];
-const srcArray = ['/img/bookmark.png', '/img/message.png'];
+const contentsArray = [{
+        href: 'a1.html',
+        text: 'a1',
+        src: '/img/bookmark.png'
+    },
+    {
+        href: 'a2.html',
+        text: 'a2',
+        src: '/img/message.png'
+    }
+];
 
 for (let i = 0; i < 2; i++) {
     const li = document.createElement('li');
