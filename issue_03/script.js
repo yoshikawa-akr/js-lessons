@@ -10,15 +10,14 @@ const contentsArray = [{
         src: '/img/message.png'
     }
 ];
-
-for (let i = 0; i < 2; i++) {
+for (let i = 0; i < contentsArray.length; i++) {
     const li = document.createElement('li');
     const a = document.createElement('a');
     const img = document.createElement('img');
 
-    a.setAttribute('href', hrefArray[i]);
-    a.textContent = textArray[i];
-    img.setAttribute('src', srcArray[i]);
+    a.setAttribute('href', contentsArray[i].href);
+    a.textContent = contentsArray[i].text;
+    img.setAttribute('src', contentsArray[i].src);
     a.insertAdjacentElement('afterbegin', img);
     ul.appendChild(li).appendChild(a);
 }
