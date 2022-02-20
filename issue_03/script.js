@@ -10,6 +10,7 @@ const contentsArray = [{
         src: '/img/message.png'
     }
 ];
+const fragment = document.createDocumentFragment();
 for (let i = 0; i < contentsArray.length; i++) {
     const li = document.createElement('li');
     const a = document.createElement('a');
@@ -18,5 +19,6 @@ for (let i = 0; i < contentsArray.length; i++) {
     a.setAttribute('href', contentsArray[i].href);
     a.textContent = contentsArray[i].text;
     img.setAttribute('src', contentsArray[i].src);
-    ul.appendChild(li).appendChild(a).insertAdjacentElement('afterbegin', img);
+    fragment.appendChild(li).appendChild(a).insertAdjacentElement('afterbegin', img);
 }
+ul.appendChild(fragment);
