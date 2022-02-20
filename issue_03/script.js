@@ -16,9 +16,9 @@ for (let i = 0; i < contentsArray.length; i++) {
     const a = document.createElement('a');
     const img = document.createElement('img');
 
-    a.setAttribute('href', contentsArray[i].href);
+    a.href = contentsArray[i].href;
     a.textContent = contentsArray[i].text;
-    img.setAttribute('src', contentsArray[i].src);
+    img.src = contentsArray[i].src;
     fragment.appendChild(li).appendChild(a).insertAdjacentElement('afterbegin', img);
 }
 ul.appendChild(fragment);
