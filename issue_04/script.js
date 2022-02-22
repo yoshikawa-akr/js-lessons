@@ -1,4 +1,4 @@
-const contentsArray = [{
+const contents = [{
     to: "bookmark.html",
     img: "1.png",
     alt: "画像1",
@@ -13,7 +13,7 @@ const contentsArray = [{
 const ul = document.createElement('ul');
 const fragment = document.createDocumentFragment();
 
-for (const item of contentsArray) {
+for (const item of contents) {
     const li = document.createElement('li');
     const a = document.createElement('a');
     const img = document.createElement('img');
