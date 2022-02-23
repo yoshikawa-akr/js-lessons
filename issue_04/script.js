@@ -10,7 +10,7 @@ const contents = [{
     text: "メッセージ"
 }];
 
-const ul = document.createElement('ul');
+const ul = document.getElementById('js-ul');
 const fragment = document.createDocumentFragment();
 
 for (const item of contents) {
@@ -25,4 +25,4 @@ for (const item of contents) {
 
     fragment.appendChild(li).appendChild(a).insertAdjacentElement('afterbegin', img);
 }
-document.body.insertAdjacentElement('afterbegin', ul).appendChild(fragment);
+ul.appendChild(fragment);
