@@ -13,7 +13,8 @@ const contents = [{
 const ul = document.getElementById('js-ul');
 const promise = new Promise((resolve) => {
     resolve(contents);
-}).then((value) => {
+});
+promise.then((value) => {
     const fragment = document.createDocumentFragment();
     for (let i = 0; i < value.length; i++) {
         const li = document.createElement('li');
