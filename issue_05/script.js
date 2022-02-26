@@ -11,10 +11,10 @@ const contents = [{
 }];
 
 const ul = document.getElementById('js-ul');
-const checkTheValueOfContents = new Promise((resolve) => {
+const checkContents = new Promise((resolve) => {
     resolve(contents);
 });
-checkTheValueOfContents.then((value) => {
+checkContents.then((value) => {
     const fragment = document.createDocumentFragment();
     for (let i = 0; i < value.length; i++) {
         const li = document.createElement('li');
