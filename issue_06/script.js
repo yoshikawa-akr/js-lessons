@@ -11,7 +11,7 @@ const contents = [{
 }];
 
 const ul = document.getElementById('js-ul');
-const wait = (sec, value) => {
+const promiseSettings = (sec, value) => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(value)
@@ -20,7 +20,7 @@ const wait = (sec, value) => {
 }
 
 async function createLists(target) {
-    await wait(3, target);
+    await promiseSettings(3, target);
 
     const fragment = document.createDocumentFragment();
     for (const item of target) {
