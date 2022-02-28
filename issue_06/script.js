@@ -11,19 +11,19 @@ const contents = [{
 }];
 
 const ul = document.getElementById('js-ul');
-const promiseSettings = (sec, value) => {
+const promiseSettings = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve(value)
-        }, sec * 1000);
+            resolve(contents)
+        }, 3000);
     });
 }
 
-async function createLists(target) {
-    await promiseSettings(3, target);
+async function createLists() {
+    const value = await promiseSettings();
 
     const fragment = document.createDocumentFragment();
-    for (const item of target) {
+    for (const item of value) {
         const li = document.createElement('li');
         const a = document.createElement('a');
         const img = document.createElement('img');
@@ -36,4 +36,4 @@ async function createLists(target) {
     }
     ul.appendChild(fragment);
 }
-createLists(contents);
+createLists();
