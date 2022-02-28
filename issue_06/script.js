@@ -11,17 +11,19 @@ const contents = [{
 }];
 
 const ul = document.getElementById('js-ul');
-const wait = (sec) => {
+const wait = (sec, value) => {
     return new Promise((resolve) => {
-        setTimeout(resolve, sec * 1000);
+        setTimeout(() => {
+            resolve(value)
+        }, sec * 1000);
     });
 }
 
-async function createLists() {
-    await wait(3);
+async function createLists(target) {
+    await wait(3, target);
 
     const fragment = document.createDocumentFragment();
-    for (const item of contents) {
+    for (const item of target) {
         const li = document.createElement('li');
         const a = document.createElement('a');
         const img = document.createElement('img');
