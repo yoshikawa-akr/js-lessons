@@ -11,21 +11,27 @@ const contents = [{
 }];
 
 const ul = document.getElementById('js-ul');
-const checkContents = new Promise((resolve) => {
-    resolve(contents);
-});
-checkContents.then((value) => {
+const wait = (sec) => {
+    return new Promise((resolve) => {
+        setTimeout(resolve, sec * 1000);
+    });
+}
+
+async function createLists() {
+    await wait(3);
+
     const fragment = document.createDocumentFragment();
-    for (let i = 0; i < value.length; i++) {
+    for (const item of contents) {
         const li = document.createElement('li');
         const a = document.createElement('a');
         const img = document.createElement('img');
 
-        a.textContent = value[i].text;
-        a.href = `/${value[i].to}`;
-        img.src = value[i].img;
-        img.alt = value[i].alt;
+        a.textContent = item.text;
+        a.href = `/${item.to}`;
+        img.src = item.img;
+        img.alt = item.alt;
         fragment.appendChild(li).appendChild(a).insertAdjacentElement('afterbegin', img);
     }
     ul.appendChild(fragment);
-});
+}
+createLists(contents);
