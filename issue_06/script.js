@@ -1,5 +1,5 @@
 const ul = document.getElementById('js-ul');
-const promiseSettings = () => {
+const promiseSettings = new Promise((resolve) => {
     const contents = [{
         to: "bookmark.html",
         img: "1.png",
@@ -11,16 +11,12 @@ const promiseSettings = () => {
         alt: "画像2",
         text: "メッセージ"
     }];
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(contents)
-        }, 3000);
-    });
-}
+    setTimeout(() => {
+        resolve(contents);
+    }, 3000);
+});
 
-async function createLists() {
-    const value = await promiseSettings();
-
+promiseSettings.then((value) => {
     const fragment = document.createDocumentFragment();
     for (const item of value) {
         const li = document.createElement('li');
@@ -34,5 +30,4 @@ async function createLists() {
         fragment.appendChild(li).appendChild(a).insertAdjacentElement('afterbegin', img);
     }
     ul.appendChild(fragment);
-}
-createLists();
+});
