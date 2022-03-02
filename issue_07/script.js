@@ -27,6 +27,6 @@ getData.then((value) => {
 
         fragment.appendChild(li).appendChild(p).appendChild(img);
     }
-    loadingImg.style.display = 'none';
+    loadingImg.remove();
     ul.appendChild(fragment);
 });
