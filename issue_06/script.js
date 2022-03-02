@@ -1,30 +1,32 @@
-const contents = [{
-    to: "bookmark.html",
-    img: "1.png",
-    alt: "画像1",
-    text: "ブックマーク"
-}, {
-    to: "message.html",
-    img: "2.png",
-    alt: "画像2",
-    text: "メッセージ"
-}];
-
 const ul = document.getElementById('js-ul');
-const checkContents = new Promise((resolve) => {
-    resolve(contents);
+const promiseSettings = new Promise((resolve) => {
+    const contents = [{
+        to: "bookmark.html",
+        img: "1.png",
+        alt: "画像1",
+        text: "ブックマーク"
+    }, {
+        to: "message.html",
+        img: "2.png",
+        alt: "画像2",
+        text: "メッセージ"
+    }];
+    setTimeout(() => {
+        resolve(contents);
+    }, 3000);
 });
-checkContents.then((value) => {
+
+promiseSettings.then((value) => {
     const fragment = document.createDocumentFragment();
-    for (let i = 0; i < value.length; i++) {
+    for (const item of value) {
         const li = document.createElement('li');
         const a = document.createElement('a');
         const img = document.createElement('img');
 
-        a.textContent = value[i].text;
-        a.href = `/${value[i].to}`;
-        img.src = value[i].img;
-        img.alt = value[i].alt;
+        a.textContent = item.text;
+        a.href = `/${item.to}`;
+        img.src = item.img;
+        img.alt = item.alt;
         fragment.appendChild(li).appendChild(a).insertAdjacentElement('afterbegin', img);
     }
     ul.appendChild(fragment);
