@@ -5,6 +5,22 @@ function loading() {
     loadingImg.alt = 'ローディング画像';
     div.appendChild(loadingImg);
 }
+
+function createLists(listsData) {
+    const fragment = document.createDocumentFragment();
+    for (const item of listsData) {
+        const li = document.createElement('li');
+        const p = document.createElement('p');
+        const img = document.createElement('img');
+
+        p.textContent = item.text;
+        img.src = item.img;
+        img.alt = item.alt;
+
+        fragment.appendChild(li).appendChild(p).appendChild(img);
+    }
+    ul.appendChild(fragment);
+}
 const getData = new Promise((resolve) => {
     const lists = [{
         img: "1.png",
@@ -21,17 +37,5 @@ const getData = new Promise((resolve) => {
 });
 const ul = document.getElementById('js-ul');
 getData.then((value) => {
-    const fragment = document.createDocumentFragment();
-    for (const item of value) {
-        const li = document.createElement('li');
-        const p = document.createElement('p');
-        const img = document.createElement('img');
-
-        p.textContent = item.text;
-        img.src = item.img;
-        img.alt = item.alt;
-
-        fragment.appendChild(li).appendChild(p).appendChild(img);
-    }
-    ul.appendChild(fragment);
+    createLists(value);
 });
