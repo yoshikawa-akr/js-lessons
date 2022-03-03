@@ -7,6 +7,7 @@ function loading() {
 }
 
 function createLists(listsData) {
+    const ul = document.getElementById('js-ul');
     const fragment = document.createDocumentFragment();
     for (const item of listsData) {
         const li = document.createElement('li');
@@ -35,7 +36,6 @@ const getData = new Promise((resolve) => {
         resolve(lists);
     }, 3000);
 });
-const ul = document.getElementById('js-ul');
 getData.then((value) => {
     createLists(value);
 });
