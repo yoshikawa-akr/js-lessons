@@ -1,3 +1,10 @@
+function loading() {
+    const div = document.getElementById('js-loading');
+    const loadingImg = document.createElement('img');
+    loadingImg.src = 'loading-circle.gif';
+    loadingImg.alt = 'ローディング画像';
+    div.appendChild(loadingImg);
+}
 const getData = new Promise((resolve) => {
     const lists = [{
         img: "1.png",
@@ -12,7 +19,6 @@ const getData = new Promise((resolve) => {
         resolve(lists);
     }, 3000);
 });
-const loadingImg = document.getElementById('js-loadingImg');
 const ul = document.getElementById('js-ul');
 getData.then((value) => {
     const fragment = document.createDocumentFragment();
@@ -27,6 +33,5 @@ getData.then((value) => {
 
         fragment.appendChild(li).appendChild(p).appendChild(img);
     }
-    loadingImg.remove();
     ul.appendChild(fragment);
 });
