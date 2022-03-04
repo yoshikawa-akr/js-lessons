@@ -1,9 +1,14 @@
-function loading() {
-    const div = document.getElementById('js-loading');
-    const loadingImg = document.createElement('img');
-    loadingImg.src = 'loading-circle.gif';
-    loadingImg.alt = 'ローディング画像';
+const div = document.getElementById('js-loading');
+const loadingImg = document.createElement('img');
+loadingImg.src = 'loading-circle.gif';
+loadingImg.alt = 'ローディング画像';
+
+function startLoading() {
     div.appendChild(loadingImg);
+}
+
+function stopLoading() {
+    div.removeChild(loadingImg);
 }
 
 function createLists(listsData) {
@@ -22,6 +27,9 @@ function createLists(listsData) {
     }
     ul.appendChild(fragment);
 }
+
+startLoading();
+
 const getData = new Promise((resolve) => {
     const lists = [{
         img: "1.png",
@@ -37,5 +45,6 @@ const getData = new Promise((resolve) => {
     }, 3000);
 });
 getData.then((value) => {
+    stopLoading();
     createLists(value);
 });
