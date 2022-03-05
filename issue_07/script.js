@@ -27,9 +27,8 @@ function createLists(listsData) {
     ul.appendChild(fragment);
 }
 
-startLoading();
-
 const getData = new Promise((resolve) => {
+    startLoading();
     const lists = [{
         img: "1.png",
         alt: "画像1",
