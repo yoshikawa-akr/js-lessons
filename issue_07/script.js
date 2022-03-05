@@ -1,9 +1,9 @@
 function startLoading() {
-    const div = document.getElementById('js-loading');
+    const loadingPlace = document.getElementById('js-loading');
     const loadingImg = document.createElement('img');
     loadingImg.src = 'loading-circle.gif';
     loadingImg.alt = 'ローディング画像';
-    div.appendChild(loadingImg);
+    loadingPlace.appendChild(loadingImg);
 }
 
 function stopLoading() {
