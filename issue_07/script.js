@@ -1,14 +1,13 @@
-const div = document.getElementById('js-loading');
-const loadingImg = document.createElement('img');
-loadingImg.src = 'loading-circle.gif';
-loadingImg.alt = 'ローディング画像';
-
 function startLoading() {
+    const div = document.getElementById('js-loading');
+    const loadingImg = document.createElement('img');
+    loadingImg.src = 'loading-circle.gif';
+    loadingImg.alt = 'ローディング画像';
     div.appendChild(loadingImg);
 }
 
 function stopLoading() {
-    div.removeChild(loadingImg);
+    document.getElementById('js-loading').remove();
 }
 
 function createLists(listsData) {
