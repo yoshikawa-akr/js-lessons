@@ -5,3 +5,7 @@ function startLoading() {
     loadingImg.alt = 'ローディング画像';
     loadingPlace.appendChild(loadingImg);
 }
+
+function stopLoading() {
+    document.getElementById('js-loading').remove(loadingImg);
+}
