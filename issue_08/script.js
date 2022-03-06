@@ -7,7 +7,7 @@ function startLoading() {
 }
 
 function stopLoading() {
-    document.getElementById('js-loading').remove(loadingImg);
+    document.getElementById('js-loading').remove();
 }
 
 function createLists(resolvedData) {
