@@ -26,7 +26,7 @@ function createLists(resolvedData) {
     ul.appendChild(fragment);
 }
 
-const getListData = new Promise((reject) => {
+const getListData = new Promise((resolve, reject) => {
     startLoading();
     const listData = [{
         img: "1.png",
@@ -42,8 +42,5 @@ const getListData = new Promise((reject) => {
     }, 3000);
 });
 getListData.catch((error) => {
-    return error;
-});
-getListData.then((catched) => {
-    console.error(catched);
+    console.error(error);
 });
