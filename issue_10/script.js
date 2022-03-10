@@ -14,14 +14,15 @@ function createLists(resolvedData) {
     const fragment = document.createDocumentFragment();
     for (const item of resolvedData) {
         const li = document.createElement('li');
-        const p = document.createElement('p');
+        const a = document.createElement('a');
         const img = document.createElement('img');
 
-        p.textContent = item.text;
+        a.href = item.to;
+        a.textContent = item.text;
         img.src = item.img;
         img.alt = item.alt;
 
-        fragment.appendChild(li).appendChild(p).appendChild(img);
+        fragment.appendChild(li).appendChild(a).appendChild(img);
     }
     ul.appendChild(fragment);
 }
@@ -29,14 +30,16 @@ function createLists(resolvedData) {
 function getListData() {
     return new Promise((resolve) => {
         const lists = [{
+            to: "bookmark.html",
             img: "1.png",
             alt: "画像1",
             text: "ブックマーク"
         }, {
+            to: "message.html",
             img: "2.png",
             alt: "画像2",
             text: "メッセージ"
-        }];
+        }]
         setTimeout(() => {
             resolve(lists);
         }, 3000);
