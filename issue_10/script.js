@@ -43,11 +43,10 @@ function getListData() {
     });
 }
 
-async function showList() {
+async function tryGetListData() {
     startLoading();
     try {
-        const listData = await getListData();
-        createLists(listData);
+        return await getListData();
     } catch (error) {
         console.error(error);
     } finally {
@@ -55,4 +54,8 @@ async function showList() {
     }
 }
 
+async function showList() {
+    const result = await tryGetListData();
+    createLists(result);
+}
 showList();
