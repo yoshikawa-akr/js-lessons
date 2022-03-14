@@ -27,17 +27,17 @@ function createLists(resolvedData) {
     ul.appendChild(fragment);
 }
 
-async function callJson() {
+async function fetchData() {
     const url = 'https://api.json-generator.com/templates/NluaaELSLhVe/data?access_token=ambjpfxjl00e50wa639kwndq1ofq3iuykdrv98ge';
     const response = await fetch(url);
     const result = await response.json();
     return result.data;
 }
 
-async function tryGetJsonData() {
+async function fetchListData() {
     startLoading();
     try {
-        return await callJson();
+        return await fetchData();
     } catch (error) {
         console.error(error);
     } finally {
@@ -46,7 +46,7 @@ async function tryGetJsonData() {
 }
 
 async function showList() {
-    const result = await tryGetJsonData();
+    const result = await fetchListData();
     createLists(result);
 }
 showList();
