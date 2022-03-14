@@ -27,7 +27,6 @@ function createLists(resolvedData) {
     ul.appendChild(fragment);
 }
 
-
 async function callJson() {
     const url = 'https://api.json-generator.com/templates/NluaaELSLhVe/data?access_token=ambjpfxjl00e50wa639kwndq1ofq3iuykdrv98ge';
     const response = await fetch(url);
@@ -35,18 +34,10 @@ async function callJson() {
     return result.data;
 }
 
-function getJsonData() {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(callJson());
-        }, 3000);
-    });
-}
-
 async function tryGetJsonData() {
     startLoading();
     try {
-        return await getJsonData();
+        return await callJson();
     } catch (error) {
         console.error(error);
     } finally {
