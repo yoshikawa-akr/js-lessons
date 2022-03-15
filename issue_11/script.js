@@ -28,21 +28,39 @@ function createLists(resolvedData) {
 }
 
 async function fetchData() {
-    const url = 'https://api.json-generator.com/templates/NluaaELSLhVe/data?access_token=ambjpfxjl00e50wa639kwndq1ofq3iuykdrv98ge';
-    const response = await fetch(url);
-    const result = await response.json();
-    return result.data;
+    try {
+        const url = 'https://api.json-generator.com/templates/NluaaELSLhVe/data?access_token=ambjpfxjl00e50wa639kwndq1ofq3iuykdrv98ge';
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('サーバーエラーです');
+        }
+        const result = await response.json();
+        return result.data;
+    } catch (responseError) {
+        console.error(responseError);
+        createErrorMessage(responseError);
+    }
 }
 
 async function fetchListData() {
     startLoading();
     try {
-        return await fetchData();
-    } catch (error) {
-        console.error(error);
+        const listData = await fetchData();
+        if (listData && listData.length === 0) {
+            throw new Error('データがありません');
+        }
+        return listData;
+    } catch (listDataError) {
+        console.error(listDataError);
+        createErrorMessage(listDataError);
     } finally {
         stopLoading();
     }
+}
+
+function createErrorMessage(e) {
+    const ul = document.getElementById('js-ul');
+    ul.textContent = e;
 }
 
 async function showList() {
