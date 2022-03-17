@@ -46,13 +46,12 @@ async function fetchListData() {
     startLoading();
     try {
         const listData = await fetchData();
-        if (listData && listData.length === 0) {
+        if (listData.length === 0) {
             createErrorMessage('データがありません');
         }
         return listData;
     } catch (listDataError) {
         console.error(listDataError);
-        createErrorMessage(listDataError);
     } finally {
         stopLoading();
     }
