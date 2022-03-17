@@ -38,7 +38,7 @@ async function fetchData() {
         return result.data;
     } catch (responseError) {
         console.error(responseError);
-        createErrorMessage(responseError);
+        displayMessage(responseError);
     }
 }
 
@@ -47,7 +47,7 @@ async function fetchListData() {
     try {
         const listData = await fetchData();
         if (listData.length === 0) {
-            createErrorMessage('データがありません');
+            displayMessage('データがありません');
         }
         return listData;
     } catch (listDataError) {
@@ -57,7 +57,7 @@ async function fetchListData() {
     }
 }
 
-function createErrorMessage(e) {
+function displayMessage(e) {
     const ul = document.getElementById('js-ul');
     ul.textContent = e;
 }
