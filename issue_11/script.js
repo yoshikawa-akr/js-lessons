@@ -47,7 +47,7 @@ async function fetchListData() {
     try {
         const listData = await fetchData();
         if (listData && listData.length === 0) {
-            throw new Error('データがありません');
+            createErrorMessage('データがありません');
         }
         return listData;
     } catch (listDataError) {
