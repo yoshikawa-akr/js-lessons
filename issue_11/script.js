@@ -27,6 +27,11 @@ function createLists(resolvedData) {
     ul.appendChild(fragment);
 }
 
+function displayMessage(e) {
+    const ul = document.getElementById('js-ul');
+    ul.textContent = e;
+}
+
 async function fetchData() {
     try {
         const url = 'https://api.json-generator.com/templates/NluaaELSLhVe/data?access_token=ambjpfxjl00e50wa639kwndq1ofq3iuykdrv98ge';
@@ -55,11 +60,6 @@ async function fetchListData() {
     } finally {
         stopLoading();
     }
-}
-
-function displayMessage(e) {
-    const ul = document.getElementById('js-ul');
-    ul.textContent = e;
 }
 
 async function showList() {
