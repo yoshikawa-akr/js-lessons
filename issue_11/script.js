@@ -5,7 +5,7 @@ function startLoading() {
     document.getElementById('js-loading').appendChild(loadingImg);
 }
 
-function stopLoading() {
+function removeLoading() {
     document.getElementById('js-loading').remove();
 }
 
@@ -59,7 +59,7 @@ async function fetchListData() {
     } catch (listDataError) {
         console.error(listDataError);
     } finally {
-        stopLoading();
+        removeLoading();
     }
 }
 
