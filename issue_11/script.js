@@ -53,7 +53,7 @@ async function fetchListData() {
         const listData = await fetchData();
         if (listData.length === 0) {
             displayMessage('データがありません');
-            console.error('データがありません');
+            console.log('データがありません');
         }
         return listData;
     } catch (listDataError) {
