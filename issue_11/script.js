@@ -27,9 +27,9 @@ function createLists(resolvedData) {
     ul.appendChild(fragment);
 }
 
-function displayMessage(e) {
+function displayMessage(error) {
     const ul = document.getElementById('js-ul');
-    ul.textContent = e;
+    ul.textContent = error;
 }
 
 async function fetchData() {
