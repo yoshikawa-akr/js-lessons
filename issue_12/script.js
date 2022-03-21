@@ -17,7 +17,7 @@ function renderList(resolvedData) {
         const a = document.createElement('a');
         const img = document.createElement('img');
 
-        a.href = item.to;
+        a.href = item.a;
         a.textContent = item.text;
         img.src = item.img;
         img.alt = item.alt;
