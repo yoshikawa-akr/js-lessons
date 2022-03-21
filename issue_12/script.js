@@ -27,9 +27,8 @@ function createLists(resolvedData) {
     ul.appendChild(fragment);
 }
 
-function displayMessage(error) {
-    const ul = document.getElementById('js-ul');
-    ul.textContent = error;
+function renderErrorMessage(messageText) {
+    document.getElementById('js-ul').textContent = messageText;
 }
 
 async function fetchData() {
@@ -43,7 +42,7 @@ async function fetchData() {
         return result.data;
     } catch (responseError) {
         console.error(responseError);
-        displayMessage(responseError);
+        renderErrorMessage(responseError);
         return false;
     }
 }
@@ -54,7 +53,7 @@ async function fetchListData() {
         const listData = await fetchData();
         if (listData.length === 0) {
             console.log('データがありません');
-            displayMessage('データがありません');
+            renderErrorMessage('データがありません');
         }
         return listData;
     } catch (listDataError) {
