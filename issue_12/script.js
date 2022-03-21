@@ -9,7 +9,7 @@ function removeLoading() {
     document.getElementById('js-loading').remove();
 }
 
-function createLists(resolvedData) {
+function renderList(resolvedData) {
     const ul = document.getElementById('js-ul');
     const fragment = document.createDocumentFragment();
     for (const item of resolvedData) {
@@ -66,7 +66,7 @@ async function fetchListData() {
 async function showList() {
     const obtainedData = await fetchListData();
     if (obtainedData) {
-        createLists(obtainedData);
+        renderList(obtainedData);
     }
 }
 
