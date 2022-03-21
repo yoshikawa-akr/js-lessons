@@ -44,6 +44,7 @@ async function fetchData() {
     } catch (responseError) {
         console.error(responseError);
         displayMessage(responseError);
+        return false;
     }
 }
 
@@ -65,7 +66,9 @@ async function fetchListData() {
 
 async function showList() {
     const obtainedData = await fetchListData();
-    createLists(obtainedData);
+    if (obtainedData) {
+        createLists(obtainedData);
+    }
 }
 
 const btn = document.getElementById('js-btn');
