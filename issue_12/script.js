@@ -36,7 +36,7 @@ async function fetchData() {
         const url = 'https://api.json-generator.com/templates/NluaaELSLhVe/data?access_token=ambjpfxjl00e50wa639kwndq1ofq3iuykdrv98ge';
         const response = await fetch(url);
         if (!response.ok) {
-            throw new Error('サーバーエラーです');
+            throw new Error(`${response.status}:${response.statusText}`);
         }
         const result = await response.json();
         return result.data;
