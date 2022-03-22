@@ -40,10 +40,8 @@ async function fetchData() {
         }
         const result = await response.json();
         return result.data;
-    } catch (responseError) {
-        console.error(responseError);
-        renderErrorMessage(responseError);
-        return false;
+    } catch (e) {
+        throw new Error(e);
     }
 }
 
@@ -56,8 +54,9 @@ async function fetchListData() {
             renderErrorMessage('データがありません');
         }
         return listData;
-    } catch (listDataError) {
-        console.error(listDataError);
+    } catch (e) {
+        console.error(e.message);
+        renderErrorMessage(e.message);
     } finally {
         removeLoading();
     }
