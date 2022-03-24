@@ -45,32 +45,26 @@ async function fetchData() {
     }
 }
 
-async function fetchListData() {
+async function init() {
     startLoading();
+    let listData;
     try {
-        const listData = await fetchData();
-        if (listData.length === 0) {
-            console.log('データがありません');
-            renderErrorMessage('データがありません');
-        }
-        return listData;
+        listData = await fetchData();
     } catch (e) {
         console.error(e.message);
         renderErrorMessage(e.message);
     } finally {
         removeLoading();
     }
-}
-
-async function showList() {
-    const obtainedData = await fetchListData();
-    if (obtainedData) {
-        renderList(obtainedData);
+    if (listData.length === 0) {
+        console.log('データがありません');
+        renderErrorMessage('データがありません');
     }
+    renderList(listData);
 }
 
 const btn = document.getElementById('js-btn');
 btn.addEventListener('click', () => {
-    showList();
+    init();
     btn.remove();
 });
