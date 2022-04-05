@@ -1,21 +1,21 @@
 const modalBtnWrapper = document.getElementById('js-modal-btn__wrapper');
 const modalBtn = document.getElementById('js-modal-btn');
-const modal = document.getElementById('js-modal');
-const requestBtn = document.getElementById('js-request-btn');
+const modalWrapper = document.getElementById('js-modal__wrapper');
+const modalBack = document.getElementById('js-modal-back');
 const closeBtn = document.getElementById('js-close-btn');
+const requestBtn = document.getElementById('js-request-btn');
+const modalTrigger = [modalBtn, modalBack, closeBtn];
 
-modalBtn.addEventListener('click', () => {
-    modalBtnWrapper.classList.add('hide');
-    modal.classList.add('active');
-});
+for (let i = 0; i < modalTrigger.length; i++) {
+    modalTrigger[i].addEventListener('click', () => {
+        modalBtnWrapper.classList.toggle('hide');
+        modalWrapper.classList.toggle('show');
+    });
+}
 
-closeBtn.addEventListener('click', () => {
-    modalBtnWrapper.classList.remove('hide')
-    modal.classList.remove('active');
-});
 requestBtn.addEventListener('click', () => {
     init();
-    modal.remove();
+    modalWrapper.remove();
 });
 
 function startLoading() {
@@ -56,12 +56,14 @@ async function fetchData() {
         const url = 'https://api.json-generator.com/templates/NluaaELSLhVe/data?access_token=ambjpfxjl00e50wa639kwndq1ofq3iuykdrv98ge';
         const response = await fetch(url);
         if (!response.ok) {
-            throw new Error(`${response.status}:${response.statusText}`);
+            console.error(`${response.status}:${response.statusText}`);
+            renderErrorMessage(`${response.status}:${response.statusText}`);
         }
         const result = await response.json();
         return result.data;
-    } catch (e) {
-        throw new Error(e);
+    } catch (error) {
+        console.error(error);
+        renderErrorMessage(`${error.name}:${error.message}`);
     }
 }
 
@@ -70,9 +72,9 @@ async function init() {
     let listData;
     try {
         listData = await fetchData();
-    } catch (e) {
-        console.error(e.message);
-        renderErrorMessage(e.message);
+    } catch (error) {
+        console.error(error.message);
+        renderErrorMessage(error.message);
     } finally {
         removeLoading();
     }
