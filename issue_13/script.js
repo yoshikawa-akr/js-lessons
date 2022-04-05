@@ -4,10 +4,10 @@ const modalWrapper = document.getElementById('js-modal__wrapper');
 const modalBack = document.getElementById('js-modal-back');
 const closeBtn = document.getElementById('js-close-btn');
 const requestBtn = document.getElementById('js-request-btn');
-const modalTrigger = [modalBtn, modalBack, closeBtn];
+const modalButtonElements = [modalBtn, modalBack, closeBtn];
 
-for (let i = 0; i < modalTrigger.length; i++) {
-    modalTrigger[i].addEventListener('click', () => {
+for (let i = 0; i < modalButtonElements.length; i++) {
+    modalButtonElements[i].addEventListener('click', () => {
         modalBtnWrapper.classList.toggle('hide');
         modalWrapper.classList.toggle('show');
     });
