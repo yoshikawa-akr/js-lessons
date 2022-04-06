@@ -72,6 +72,9 @@ async function init() {
     let listData;
     try {
         listData = await fetchData();
+        if (!listData) {
+            return;
+        }
     } catch (error) {
         console.error(error.message);
         renderErrorMessage(error.message);
