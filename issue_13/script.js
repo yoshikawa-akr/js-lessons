@@ -81,7 +81,7 @@ async function init() {
     } finally {
         removeLoading();
     }
-    if (listData.length === 0) {
+    if (!listData.length) {
         console.log('データがありません');
         renderErrorMessage('データがありません');
     }
