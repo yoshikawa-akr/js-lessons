@@ -1,0 +1,121 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.modal-btn__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.modal-btn__wrapper.hide {
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.modal-btn {
+    font-size: 16px;
+    padding: 0.5em;
+    background-color: #fff;
+    color: rgb(13, 105, 167);
+    border: 2px solid rgb(13, 105, 167);
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+.modal-btn:hover {
+    background-color: rgb(13, 105, 167);
+    color: #fff;
+}
+
+.modal__wrapper {
+    visibility: hidden;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition-duration: 0.3s;
+}
+
+.modal__wrapper.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 50%;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-back {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 30, 30, 0.9);
+}
+
+.request-btn {
+    font-size: 16px;
+    padding: 0.5em;
+    background-color: #fff;
+    color: rgb(13, 105, 167);
+    border: 2px solid rgb(13, 105, 167);
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+.request-btn:hover {
+    background-color: rgb(13, 105, 167);
+    color: #fff;
+}
+
+.close-btn {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    cursor: pointer;
+}
+
+.close-btn:hover .close-btn__icon {
+    background-color: red;
+}
+
+.close-btn__icon {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: black;
+    transform: rotate(45deg);
+    transition-duration: 0.3s;
+}
+
+.close-btn__icon::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: inherit;
+    transform: rotate(90deg);
+}
