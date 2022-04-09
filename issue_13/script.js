@@ -1,13 +1,10 @@
 const modalBtnWrapper = document.getElementById('js-modal-btn__wrapper');
-const modalBtn = document.getElementById('js-modal-btn');
 const modalWrapper = document.getElementById('js-modal__wrapper');
-const modalBack = document.getElementById('js-modal-back');
-const closeBtn = document.getElementById('js-close-btn');
 const requestBtn = document.getElementById('js-request-btn');
-const modalButtonElements = [modalBtn, modalBack, closeBtn];
+const modalButtonElements = document.getElementsByClassName('js-modal-btn');
 
-for (let i = 0; i < modalButtonElements.length; i++) {
-    modalButtonElements[i].addEventListener('click', () => {
+for (const modalButtonElement of modalButtonElements) {
+    modalButtonElement.addEventListener('click', () => {
         modalBtnWrapper.classList.toggle('hide');
         modalWrapper.classList.toggle('show');
     });
