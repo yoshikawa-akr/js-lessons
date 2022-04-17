@@ -69,18 +69,22 @@ async function init(num) {
     renderList(listData);
 }
 
-const modalBtnWrapper = document.getElementById('js-modal-btn__wrapper');
 const modalWrapper = document.getElementById('js-modal__wrapper');
 const requestBtn = document.getElementById('js-request-btn');
-const modalButtonElements = document.getElementsByClassName('js-modal-btn');
 
-for (const modalButtonElement of modalButtonElements) {
-    modalButtonElement.addEventListener('click', () => {
-        modalBtnWrapper.classList.toggle('hide');
-        modalWrapper.classList.toggle('show');
-    });
+function switchModal() {
+    const modalBtnWrapper = document.getElementById('js-modal-btn__wrapper');
+    const modalButtonElements = document.getElementsByClassName('js-modal-btn');
+
+    for (const modalButtonElement of modalButtonElements) {
+        modalButtonElement.addEventListener('click', () => {
+            modalBtnWrapper.classList.toggle('hide');
+            modalWrapper.classList.toggle('show');
+        });
+    }
 }
 
+switchModal();
 requestBtn.addEventListener('click', () => {
     const value = document.getElementById('js-number-input').value;
     if (!value) {
