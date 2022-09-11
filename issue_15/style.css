@@ -1,0 +1,126 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.btn__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    background-color: #892CDC;
+    color: #ffffff;
+    border: 2px solid #892CDC;
+    padding: 0.5em 2em;
+    border-radius: 8px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: #ffffff;
+    color: #892CDC;
+}
+
+.show-btn__wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.show-btn {
+    font-size: 18px;
+}
+
+.modal {
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+    padding: 5% 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border: 1px solid #1a1a1a;
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal__element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+.modal__input-label {
+    padding-right: 1em;
+    cursor: pointer;
+}
+
+.modal__input {
+    font-size: 16px;
+    padding: 0.1em;
+}
+
+.close-btn {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    cursor: pointer;
+}
+
+.close-btn:hover .close-btn__icon,
+.close-btn:focus .close-btn__icon {
+    background-color: red;
+}
+
+.close-btn__icon {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #1a1a1a;
+    transform: rotate(45deg);
+    transition-duration: 0.3s;
+}
+
+.close-btn__icon::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: inherit;
+    transform: rotate(90deg);
+}
+
+.modal-mask {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(30, 30, 30, 0.9);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hide {
+    opacity: 0;
+    visibility: hidden;
+}
