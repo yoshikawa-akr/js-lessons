@@ -4,7 +4,7 @@ const closeBtn = document.getElementById('js-close-btn');
 const submitBtn = document.getElementById('js-submit-btn');
 
 
-function startLoading() {
+function renderLoading() {
     const loadingImg = document.createElement('img');
     loadingImg.src = 'loading-circle.gif';
     loadingImg.alt = 'ローディング画像';
@@ -48,7 +48,7 @@ async function fetchData() {
 }
 
 async function init(num, text) {
-    startLoading();
+    renderLoading();
     let listData;
     try {
         console.log(num, text);
