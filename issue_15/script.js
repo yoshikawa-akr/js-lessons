@@ -75,13 +75,13 @@ closeBtn.addEventListener('click', () => {
 });
 
 submitBtn.addEventListener('click', () => {
-    const inputNumber = document.getElementById('js-input-number').value;
-    const inputText = document.getElementById('js-input-text').value;
-    if (inputNumber == '' || inputText == '') {
-        alert('未入力のフォームがあります');
-    } else {
+    const inputNumber = document.getElementById('js-input-number').value.trim();
+    const inputText = document.getElementById('js-input-text').value.trim();
+    if (inputNumber && inputText) {
         init(inputNumber, inputText);
         document.getElementById('js-form').reset();
         modal.classList.remove('show');
+    } else {
+        alert('未入力のフォームがあります');
     }
 });
