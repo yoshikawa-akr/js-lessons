@@ -2,6 +2,7 @@ const showBtn = document.getElementById('js-show-btn');
 const modal = document.getElementById('js-modal');
 const closeBtn = document.getElementById('js-close-btn');
 const submitBtn = document.getElementById('js-submit-btn');
+const endpoint = 'https://api.json-generator.com/templates/NluaaELSLhVe/data?access_token=zjrk7bmqgvptk4dcs8p8bhs5n9sk7m1ecs65gvq4';
 
 
 function renderLoading() {
@@ -35,8 +36,7 @@ function renderList(resolvedData) {
 
 async function fetchData() {
     try {
-        const URL = 'https://api.json-generator.com/templates/NluaaELSLhVe/data?access_token=zjrk7bmqgvptk4dcs8p8bhs5n9sk7m1ecs65gvq4';
-        const response = await fetch(URL);
+        const response = await fetch(endpoint);
         if (!response.ok) {
             console.error(`${response.status}:${response.statusText}`);
         }
