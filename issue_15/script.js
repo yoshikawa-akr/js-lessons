@@ -1,7 +1,7 @@
-const showBtn = document.getElementById('js-show-btn');
+const showButton = document.getElementById('js-show-btn');
 const modal = document.getElementById('js-modal');
-const closeBtn = document.getElementById('js-close-btn');
-const submitBtn = document.getElementById('js-submit-btn');
+const closeButton = document.getElementById('js-close-btn');
+const submitButton = document.getElementById('js-submit-btn');
 const endpoint = 'https://api.json-generator.com/templates/NluaaELSLhVe/data?access_token=zjrk7bmqgvptk4dcs8p8bhs5n9sk7m1ecs65gvq4';
 
 
@@ -47,11 +47,11 @@ async function fetchData() {
     }
 }
 
-async function init(num, text) {
+async function init(number, text) {
     renderLoading();
     let listData;
     try {
-        console.log(num, text);
+        console.log(number, text);
         listData = await fetchData();
         if (!listData) {
             return;
@@ -64,17 +64,17 @@ async function init(num, text) {
     }
 }
 
-showBtn.addEventListener('click', () => {
+showButton.addEventListener('click', () => {
     modal.classList.add('show');
-    showBtn.classList.add('hide');
+    showButton.classList.add('hide');
 });
 
-closeBtn.addEventListener('click', () => {
+closeButton.addEventListener('click', () => {
     modal.classList.remove('show');
-    showBtn.classList.remove('hide');
+    showButton.classList.remove('hide');
 });
 
-submitBtn.addEventListener('click', () => {
+submitButton.addEventListener('click', () => {
     const inputNumber = document.getElementById('js-input-number').value.trim();
     const inputText = document.getElementById('js-input-text').value.trim();
     if (inputNumber && inputText) {
