@@ -16,10 +16,10 @@ function removeLoading() {
     document.getElementById('js-loading').remove();
 }
 
-function renderList(resolvedData) {
+function renderList(listDataGroup) {
     const ul = document.getElementById('js-ul');
     const fragment = document.createDocumentFragment();
-    for (const item of resolvedData) {
+    for (const item of listDataGroup) {
         const li = document.createElement('li');
         const a = document.createElement('a');
         const img = document.createElement('img');
