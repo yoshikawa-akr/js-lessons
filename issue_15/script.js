@@ -16,10 +16,10 @@ function removeLoading() {
     document.getElementById('js-loading').remove();
 }
 
-function renderList(listDataGroup) {
+function renderList(listData) {
     const ul = document.getElementById('js-ul');
     const fragment = document.createDocumentFragment();
-    for (const item of listDataGroup) {
+    for (const item of listData) {
         const li = document.createElement('li');
         const a = document.createElement('a');
         const img = document.createElement('img');
@@ -49,14 +49,14 @@ async function fetchData() {
 
 async function init(number, text) {
     renderLoading();
-    let listData;
+    let resultOfFetchData;
     try {
         console.log(number, text);
-        listData = await fetchData();
-        if (!listData) {
+        resultOfFetchData = await fetchData();
+        if (!resultOfFetchData) {
             return;
         }
-        renderList(listData);
+        renderList(resultOfFetchData);
     } catch (error) {
         console.error(error);
     } finally {
