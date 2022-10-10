@@ -75,10 +75,10 @@ closeButton.addEventListener('click', () => {
 });
 
 submitButton.addEventListener('click', () => {
-    const inputNumber = document.getElementById('js-input-number').value.trim();
-    const inputText = document.getElementById('js-input-text').value.trim();
-    if (inputNumber && inputText) {
-        init(inputNumber, inputText);
+    const trimmedInputNumber = document.getElementById('js-input-number').value.trim();
+    const trimmedInputText = document.getElementById('js-input-text').value.trim();
+    if (trimmedInputNumber && trimmedInputText) {
+        init(trimmedInputNumber, trimmedInputText);
         document.getElementById('js-form').reset();
         modal.classList.remove('show');
     } else {
