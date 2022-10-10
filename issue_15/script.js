@@ -16,6 +16,10 @@ function removeLoading() {
     document.getElementById('js-loading').remove();
 }
 
+function removeShowClassOfmodal() {
+    modal.classList.remove('show');
+}
+
 function renderList(listData) {
     const ul = document.getElementById('js-ul');
     const fragment = document.createDocumentFragment();
@@ -70,7 +74,7 @@ showButton.addEventListener('click', () => {
 });
 
 closeButton.addEventListener('click', () => {
-    modal.classList.remove('show');
+    removeShowClassOfmodal();
     showButton.classList.remove('hide');
 });
 
@@ -80,7 +84,7 @@ submitButton.addEventListener('click', () => {
     if (trimmedInputNumber && trimmedInputText) {
         init(trimmedInputNumber, trimmedInputText);
         document.getElementById('js-form').reset();
-        modal.classList.remove('show');
+        removeShowClassOfmodal();
     } else {
         alert('未入力のフォームがあります');
     }
