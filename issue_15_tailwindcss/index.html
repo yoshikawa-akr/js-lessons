@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css">
     <script type="module" src="/main.js" defer></script>
     <title>もりけん塾 JS課題15 tailwindcssバージョン</title>
-  </head>
-  <body>
-    <div class="btn__wrapper show-btn__wrapper">
-      <button type="button" class="btn show-btn" id="js-show-btn">モーダルを表示する</button>
-  </div>
-  <div class="modal" id="js-modal">
-      <form method="post" id="js-form">
-          <div class="modal__element">
-              <label for="js-input-number" class="modal__input-label">数字</label>
-              <input type="number" name="number" class="modal__input" id="js-input-number">
-          </div>
-          <div class="modal__element">
-              <label for="js-input-text" class="modal__input-label">名前</label>
-              <input type="text" name="your_name" class="modal__input" id="js-input-text">
-          </div>
-          <div class="btn__wrapper">
-              <button type="button" class="btn" id="js-submit-btn">送信</button>
-          </div>
-      </form>
-      <button type="button" class="close-btn" id="js-close-btn">
-          <span class="close-btn__icon"></span>
-      </button>
-  </div>
-  <div id="js-loading"></div>
-  <ul id="js-ul"></ul>
-  </body>
+</head>
+
+<body class="bg-white">
+    <div class="btn__wrapper show-btn__wrapper flex justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <button type="button" class="btn show-btn bg-purple-800 text-white text-lg border-2 border-solid border-purple-800 rounded transition-all duration-300 cursor-pointer hover:bg-white hover:text-purple-800 hover:border-purple-800" id="js-show-btn">モーダルを表示する</button>
+    </div>
+    <div class="modal w-1/2 h-auto my-0 mx-auto py-8 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-solid opacity-0 invisible" id="js-modal">
+        <form method="post" id="js-form">
+            <div class="modal__element flex justify-center items-center mb-8 text-black">
+                <label for="js-input-number" class="modal__input-label pr-6 cursor-pointer">数字</label>
+                <input type="number" name="number" class="modal__input text-base border border-black bg-transparent p-1" id="js-input-number">
+            </div>
+            <div class="modal__element flex justify-center items-center mb-8 text-black">
+                <label for="js-input-text" class="modal__input-label pr-6 cursor-pointer">名前</label>
+                <input type="text" name="your_name" class="modal__input text-base border border-black bg-transparent p-1" id="js-input-text">
+            </div>
+            <div class="btn__wrapper flex justify-center items-center">
+                <button type="button" class="btn text-white bg-purple-800 border-2 border-solid border-purple-800 rounded transition-all duration-300 cursor-pointer hover:bg-white hover:text-purple-800 hover:border-purple-800 focus:bg-white focus:text-purple-800 focus:border-purple-800" id="js-submit-btn">送信</button>
+            </div>
+        </form>
+        <button type="button" class="close-btn block w-6 h-6 p-0 absolute top-4 right-4 outline-0 border-none hover:outline-0 hover:border-none focus:outline-0 active:outline-0 active:scale-110 focus-visible:outline-1" id="js-close-btn">
+            <span class="close-btn__icon block w-6 h-0.5 bg-red-600 rotate-45 after:content-[''] after:block after:w-6 after:h-0.5 after:bg-inherit after:rotate-90"></span>
+        </button>
+    </div>
+    <div id="js-loading"></div>
+    <ul id="js-ul"></ul>
+</body>
+
 </html>
