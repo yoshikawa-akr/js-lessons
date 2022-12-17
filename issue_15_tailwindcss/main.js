@@ -17,7 +17,7 @@ function removeLoading() {
 }
 
 function removeShowClassOfmodal() {
-    modal.classList.remove('show');
+    modal.classList.add('opacity-0', 'invisible');
 }
 
 function renderList(listData) {
@@ -69,13 +69,13 @@ async function init(number, text) {
 }
 
 showButton.addEventListener('click', () => {
-    modal.classList.add('show');
-    showButton.classList.add('hide');
+    modal.classList.remove('opacity-0', 'invisible');
+    showButton.classList.add('opacity-0', 'invisible');
 });
 
 closeButton.addEventListener('click', () => {
     removeShowClassOfmodal();
-    showButton.classList.remove('hide');
+    showButton.classList.remove('opacity-0', 'invisible');
 });
 
 submitButton.addEventListener('click', () => {
