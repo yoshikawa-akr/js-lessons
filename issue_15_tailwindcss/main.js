@@ -9,6 +9,7 @@ function renderLoading() {
     const loadingImg = document.createElement('img');
     loadingImg.src = 'loading-circle.gif';
     loadingImg.alt = 'ローディング画像';
+    loadingImg.classList.add('absolute', 'top-1/2', 'left-1/2', '-translate-x-1/2', '-translate-y-1/2');
     document.getElementById('js-loading').appendChild(loadingImg);
 }
 
