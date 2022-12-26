@@ -84,7 +84,6 @@ submitButton.addEventListener('click', () => {
     const trimmedInputText = document.getElementById('js-input-text').value.trim();
     if (trimmedInputNumber && trimmedInputText) {
         init(trimmedInputNumber, trimmedInputText);
-        document.getElementById('js-form').reset();
         removeShowClassOfmodal();
     } else {
         alert('未入力のフォームがあります');
