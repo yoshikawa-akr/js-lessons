@@ -10,21 +10,21 @@
 </head>
 
 <body class="bg-white">
-    <div class="flex justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <button type="button" class="bg-purple-800 text-white text-lg border-2 border-solid border-purple-800 rounded transition duration-300 cursor-pointer hover:bg-white hover:text-purple-800 hover:border-purple-800" id="js-show-btn">モーダルを表示する</button>
+    <div class="flex-center centering">
+        <button type="button" class="button text-lg" id="js-show-btn">モーダルを表示する</button>
     </div>
-    <div class="w-1/2 h-auto my-0 mx-auto py-8 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-solid opacity-0 invisible" id="js-modal">
+    <div class="centering hide w-1/2 h-auto my-0 mx-auto py-8 border border-solid" id="js-modal">
         <form method="post">
-            <div class="flex justify-center items-center mb-8 text-black">
-                <label for="js-input-number" class="pr-6 cursor-pointer">数字</label>
-                <input type="number" name="number" class="text-base border border-black bg-transparent p-1" id="js-input-number">
+            <div class="form__element">
+                <label for="js-input-number" class="label">数字</label>
+                <input type="number" name="number" class="input" id="js-input-number">
             </div>
-            <div class="flex justify-center items-center mb-8 text-black">
-                <label for="js-input-text" class="pr-6 cursor-pointer">名前</label>
-                <input type="text" name="your_name" class="text-base border border-black bg-transparent p-1" id="js-input-text">
+            <div class="form__element">
+                <label for="js-input-text" class="label">名前</label>
+                <input type="text" name="your_name" class="input" id="js-input-text">
             </div>
-            <div class="flex justify-center items-center">
-                <button type="button" class="text-white bg-purple-800 border-2 border-solid border-purple-800 rounded transition-all duration-300 cursor-pointer hover:bg-white hover:text-purple-800 hover:border-purple-800 focus:bg-white focus:text-purple-800 focus:border-purple-800" id="js-submit-btn">送信</button>
+            <div class="flex-center">
+                <button type="button" class="button" id="js-submit-btn">送信</button>
             </div>
         </form>
         <button type="button" class="block w-6 h-6 p-0 absolute top-4 right-4 outline-0 border-none hover:outline-0 hover:border-none focus:outline-0 active:outline-0 active:scale-110 focus-visible:outline-1" id="js-close-btn">
