@@ -9,7 +9,7 @@ function renderLoading() {
     const loadingImg = document.createElement('img');
     loadingImg.src = 'loading-circle.gif';
     loadingImg.alt = 'ローディング画像';
-    loadingImg.classList.add('absolute', 'top-1/2', 'left-1/2', '-translate-x-1/2', '-translate-y-1/2');
+    loadingImg.classList.add('centering');
     document.getElementById('js-loading').appendChild(loadingImg);
 }
 
@@ -17,8 +17,8 @@ function removeLoading() {
     document.getElementById('js-loading').remove();
 }
 
-function removeShowClassOfmodal() {
-    modal.classList.add('opacity-0', 'invisible');
+function toggleHideClassOfmodal() {
+    modal.classList.toggle('hide');
 }
 
 function renderList(listData) {
@@ -70,13 +70,13 @@ async function init(number, text) {
 }
 
 showButton.addEventListener('click', () => {
-    modal.classList.remove('opacity-0', 'invisible');
-    showButton.classList.add('opacity-0', 'invisible');
+    toggleHideClassOfmodal();
+    showButton.classList.add('hide');
 });
 
 closeButton.addEventListener('click', () => {
-    removeShowClassOfmodal();
-    showButton.classList.remove('opacity-0', 'invisible');
+    toggleHideClassOfmodal();
+    showButton.classList.remove('hide');
 });
 
 submitButton.addEventListener('click', () => {
@@ -84,7 +84,7 @@ submitButton.addEventListener('click', () => {
     const trimmedInputText = document.getElementById('js-input-text').value.trim();
     if (trimmedInputNumber && trimmedInputText) {
         init(trimmedInputNumber, trimmedInputText);
-        removeShowClassOfmodal();
+        toggleHideClassOfmodal();
     } else {
         alert('未入力のフォームがあります');
     }
