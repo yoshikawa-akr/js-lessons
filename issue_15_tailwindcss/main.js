@@ -9,6 +9,7 @@ function renderLoading() {
     const loadingImg = document.createElement('img');
     loadingImg.src = 'loading-circle.gif';
     loadingImg.alt = 'ローディング画像';
+    loadingImg.classList.add('centering');
     document.getElementById('js-loading').appendChild(loadingImg);
 }
 
@@ -16,8 +17,8 @@ function removeLoading() {
     document.getElementById('js-loading').remove();
 }
 
-function removeShowClassOfmodal() {
-    modal.classList.remove('show');
+function toggleHideClassOfmodal() {
+    modal.classList.toggle('hide');
 }
 
 function renderList(listData) {
@@ -69,12 +70,12 @@ async function init(number, text) {
 }
 
 showButton.addEventListener('click', () => {
-    modal.classList.add('show');
+    toggleHideClassOfmodal();
     showButton.classList.add('hide');
 });
 
 closeButton.addEventListener('click', () => {
-    removeShowClassOfmodal();
+    toggleHideClassOfmodal();
     showButton.classList.remove('hide');
 });
 
@@ -83,8 +84,7 @@ submitButton.addEventListener('click', () => {
     const trimmedInputText = document.getElementById('js-input-text').value.trim();
     if (trimmedInputNumber && trimmedInputText) {
         init(trimmedInputNumber, trimmedInputText);
-        document.getElementById('js-form').reset();
-        removeShowClassOfmodal();
+        toggleHideClassOfmodal();
     } else {
         alert('未入力のフォームがあります');
     }
