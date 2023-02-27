@@ -7,6 +7,12 @@ function createNewElements(tagName, className) {
     return newElement;
 }
 
+function displayErrorMessage() {
+    const errorMessage = createNewElements('p', 'error-message');
+    errorMessage.textContent = 'Communication failed on the server side.';
+    ul.appendChild(errorMessage);
+}
+
 async function fetchData() {
     try {
         const response = await fetch(endpoint);
@@ -36,7 +42,7 @@ async function init() {
     try {
         resultOfFetchData = await fetchData();
         if (!resultOfFetchData) {
-            return;
+            displayErrorMessage();
         }
     } catch (error) {
         console.error(error);
