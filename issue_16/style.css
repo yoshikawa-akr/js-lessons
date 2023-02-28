@@ -9,7 +9,6 @@
 .wrapper {
     display: flex;
     width: 50%;
-    height: auto;
     margin: 16px auto 0;
     padding-bottom: 32px;
     border: 2px solid #afafaf;
@@ -20,5 +19,5 @@
     padding: 8px;
     border-right: 2px solid #1f1f1f;
     border-bottom: 2px solid #1f1f1f;
-    background-color: #B4E4FF;
+    background-color: #b4e4ff;
 }
