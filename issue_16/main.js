@@ -38,15 +38,15 @@ const renderTabs = (tabElements) => {
 }
 
 async function init() {
-    let resultOfFetchData;
+    let res;
     try {
-        resultOfFetchData = await fetchData();
-        if (!resultOfFetchData) {
+        res = await fetchData();
+        if (!res) {
             displayErrorMessage();
         }
     } catch (error) {
         console.error(error);
     }
-    renderTabs(resultOfFetchData);
+    renderTabs(res);
 }
 init();
