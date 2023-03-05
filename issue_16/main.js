@@ -27,11 +27,11 @@ async function fetchData() {
 }
 
 
-const renderTabs = (jsonArray) => {
+const renderTabs = (data) => {
     const fragment = new DocumentFragment();
-    for (const tabElement of jsonArray) {
+    for (const item of data) {
         const tabList = createNewElements('li', 'tab-list');
-        tabList.textContent = tabElement.category;
+        tabList.textContent = item.category;
         fragment.appendChild(tabList);
     }
     ul.appendChild(fragment);
